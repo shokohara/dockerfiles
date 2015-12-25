@@ -1,0 +1,6 @@
+machine:
+  services:
+    - docker
+test:
+  override:
+    - find . -type f -name Dockerfile | sed -e 's/\/Dockerfile//' | xargs docker build
