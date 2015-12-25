@@ -3,4 +3,4 @@ machine:
     - docker
 test:
   override:
-    - find . -type f -name Dockerfile | sed -e 's/\/Dockerfile//' | xargs docker build
+    - for i in $(find . -type f -name Dockerfile | sed -e 's/\/Dockerfile//'); do docker build $i; done
